@@ -1,18 +1,21 @@
 import React from 'react';
 import { fetchCollection } from '../lib/collection';
 import './Collection.css';
+import LazyLoad from 'react-lazy-load';
+
+export interface PlayerProp {
+  firstname: string;
+  lastname: string;
+  birthday: string;
+  image: string;
+}
 
 interface PlayerInfo {
   id: number;
-  player: {
-    firstname: string;
-    lastname: string;
-    birthday: string;
-    image: string;
-  };
+  player: PlayerProp;
 }
 
-export const Collection = () => {
+export const Collection: React.FC = () => {
   const collection = fetchCollection();
   const card: PlayerInfo = collection[0];
 
@@ -28,6 +31,8 @@ export const Collection = () => {
     const date = new Date(arg);
     return date.toLocaleDateString('en-US', options);
   };
+
+  console.log(card, 'card');
 
   /**
    * Step 1: Render the card
