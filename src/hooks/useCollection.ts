@@ -14,7 +14,7 @@ export const useFetchCollections = () => {
         setPlayers([...response]);
       })
       .catch((err) => {
-        setError('Failed to Fetch Collection');
+        setError('Something went wrong. Please try after sometime.');
       })
       .finally(() => {
         setIsLoading(false);

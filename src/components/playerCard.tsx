@@ -1,6 +1,6 @@
 import LazyLoad from 'react-lazy-load';
 import * as React from 'react';
-
+import { Paragraph } from './style';
 const PlayerCard = ({ player }) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: 'long',
@@ -37,7 +37,7 @@ const PlayerCard = ({ player }) => {
             <h1 className="text-center">
               {player.firstname} {player.lastname}
             </h1>
-            <p className="text-center">{formatDate(player.birthday)}</p>
+            <Paragraph>{formatDate(player.birthday)}</Paragraph>
           </div>
         </div>
       </div>
