@@ -11,6 +11,6 @@ export interface PlayerProps {
 }
 
 export interface PlayerInfo {
-  id: string;
+  id: number;
   player: PlayerProps;
 }

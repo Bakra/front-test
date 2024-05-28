@@ -10,6 +10,8 @@ export const CreateCard = () => {
   const { field, handleChange, handleSubmit, openModal, closeModal } =
     useAddPlayer();
 
+  const getRules = (arg: any) => arg.rules || {};
+
   return (
     <div>
       <AddPlayerButton onClick={openModal}>Add Player</AddPlayerButton>
@@ -25,6 +27,7 @@ export const CreateCard = () => {
                   name={item.value}
                   required
                   onChange={handleChange}
+                  {...getRules(item)}
                 />
               </div>
             ))}

@@ -81,3 +81,24 @@
     align-items: center;
     gap: 16px;
 }
+
+.mb-5 {
+    margin-bottom: 20px;
+}
+
+.empty-box {
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+}
+
+.link-btn {
+    padding: 8px;
+        color: #fff;
+        background-color: dodgerblue;
+        border-radius: 6px;
+        border: none;
+        text-decoration: none;
+}

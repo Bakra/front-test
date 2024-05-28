@@ -20,11 +20,9 @@ const field = [
     title: 'Birth Day',
     value: 'birthday',
     field: 'date',
-  },
-  {
-    title: 'Image',
-    value: 'image',
-    field: 'file',
+    rules: {
+      max: new Date().toISOString().slice(0, -14),
+    },
   },
 ] as const;
 
@@ -34,10 +32,6 @@ const useAddPlayer = () => {
   const handleChange = (e: any) => {
     const name = e.target.name;
     let value = e.target.value;
-    const type = e.target.type;
-    if (type === 'file') {
-      value = e.target.files[0];
-    }
     setFields({ ...fields, [name]: value });
   };
 
@@ -57,6 +51,10 @@ const useAddPlayer = () => {
     e.preventDefault();
     fetch('http://localhost:8001/cards', {
       method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ player: fields }),
     })
       .then((res) => res.json())

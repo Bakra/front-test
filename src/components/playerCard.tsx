@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Paragraph } from './style';
 import { PlayerProps } from '../types/player';
 
-const PlayerCard = ({ player }: { player: PlayerProps }) => {
+const PlayerCard = ({ player, id }: { player: PlayerProps; id: number }) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     year: 'numeric',
@@ -15,13 +15,17 @@ const PlayerCard = ({ player }: { player: PlayerProps }) => {
     const date = new Date(arg);
     return date.toLocaleDateString('en-US', options);
   };
+
+  const getImageURL = React.useMemo(() => {
+    return `https://images.fotmob.com/image_resources/playerimages/${id}.png`;
+  }, [id]);
   return (
     <div className="flip-card">
       <div className="flip-card-inner">
         <div className="flip-card-front">
           <LazyLoad height={300}>
             <img
-              src={player.image}
+              src={getImageURL}
               alt="Avatar"
               style={{
                 width: '300px',
