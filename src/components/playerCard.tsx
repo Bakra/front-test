@@ -1,7 +1,9 @@
 import LazyLoad from 'react-lazy-load';
 import * as React from 'react';
 import { Paragraph } from './style';
-const PlayerCard = ({ player }) => {
+import { PlayerProps } from '../types/player';
+
+const PlayerCard = ({ player }: { player: PlayerProps }) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     year: 'numeric',
